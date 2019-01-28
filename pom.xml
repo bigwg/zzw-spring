@@ -21,6 +21,7 @@
         <module>spring-boot-1.x</module>
         <module>spring-boot-2.x</module>
         <module>spring</module>
+        <module>java-basic</module>
     </modules>
 
     <dependencies>
