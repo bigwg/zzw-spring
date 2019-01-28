@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+# Spring配置
+spring:
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.130.11:8848
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
