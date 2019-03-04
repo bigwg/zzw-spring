@@ -1,4 +1,4 @@
-package com.zzw.spring.cloud.nacos.common;
+package com.zzw.trta.common;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,10 +15,10 @@ import java.io.Serializable;
 @ToString
 public class ResultDTO<T> implements Serializable {
 
-    private static final long serialVersionUID = 1789151585L;
     private static final int DEFAULT_EXCEPTION_CODE = -1;
     private static final int DEFAULT_SUCCESS_CODE = 1;
     private static final int DEFAULT_ERROR_CODE = 0;
+    private static final long serialVersionUID = 9100851771994890862L;
 
     private Integer code;
     private Boolean success;
@@ -38,18 +38,17 @@ public class ResultDTO<T> implements Serializable {
         return handleSuccess("success", data);
     }
 
-    public static <T> ResultDTO<T> handleError(String msg, T data) {
+    public static <T> ResultDTO<T> handleError(ErrorCode errorCode, Class<T> clazz) {
         ResultDTO<T> ret = new ResultDTO<>();
-        ret.setCode(DEFAULT_ERROR_CODE);
-        ret.setMsg(msg);
+        ret.setCode(errorCode.getCode());
+        ret.setMsg(errorCode.getMessage());
         ret.setSuccess(false);
-        ret.setData(data);
         return ret;
     }
 
-    public static <T> ResultDTO<T> handleError(String msg, Class<T> clazz) {
+    public static <T> ResultDTO<T> handleError(Integer code, String msg, Class<T> clazz) {
         ResultDTO<T> ret = new ResultDTO<>();
-        ret.setCode(DEFAULT_ERROR_CODE);
+        ret.setCode(code);
         ret.setMsg(msg);
         ret.setSuccess(false);
         return ret;
