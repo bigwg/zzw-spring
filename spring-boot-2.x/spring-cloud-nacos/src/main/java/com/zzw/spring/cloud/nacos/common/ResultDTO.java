@@ -55,5 +55,13 @@ public class ResultDTO<T> implements Serializable {
         return ret;
     }
 
+    public static <T> ResultDTO<T> handleError(String msg) {
+        ResultDTO<T> ret = new ResultDTO<>();
+        ret.setCode(DEFAULT_ERROR_CODE);
+        ret.setMsg(msg);
+        ret.setSuccess(false);
+        return ret;
+    }
+
 }
 
