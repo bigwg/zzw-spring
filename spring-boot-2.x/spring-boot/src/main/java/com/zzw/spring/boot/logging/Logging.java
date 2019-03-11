@@ -1,4 +1,4 @@
-package com.zzw.spring.cloud.nacos.logging;
+package com.zzw.spring.boot.logging;
 
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;

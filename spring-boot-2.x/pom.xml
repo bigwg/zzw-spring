@@ -17,6 +17,7 @@
 
     <modules>
         <module>spring-cloud-nacos</module>
+        <module>spring-boot</module>
     </modules>
 
     <properties>
