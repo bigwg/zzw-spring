@@ -1,11 +1,14 @@
 package com.zzw.spring.boot.contorller;
 
+import com.zzw.spring.boot.domain.Person;
 import com.zzw.spring.boot.jmx.SimpleBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author zhaozhiwei
@@ -18,6 +21,8 @@ public class DemoController {
 
     @Autowired
     private SimpleBean simpleBean;
+    @Resource
+    private Person person;
 
     @GetMapping("jmx/simple-bean")
     public SimpleBean simpleBean(@RequestParam(required = false) Long id,
@@ -33,5 +38,10 @@ public class DemoController {
             simpleBean.setValue(value);
         }
         return simpleBean;
+    }
+
+    @GetMapping("config/getPerson")
+    public Person getPerson(){
+        return person;
     }
 }

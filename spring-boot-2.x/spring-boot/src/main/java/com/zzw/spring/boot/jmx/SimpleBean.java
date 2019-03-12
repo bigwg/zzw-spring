@@ -1,5 +1,7 @@
 package com.zzw.spring.boot.jmx;
 
+import org.springframework.jmx.export.annotation.ManagedAttribute;
+import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +19,7 @@ public class SimpleBean {
     private String name;
     private Integer value;
 
+    @ManagedAttribute(description = "id属性")
     public Long getId() {
         return id;
     }
@@ -25,6 +28,7 @@ public class SimpleBean {
         this.id = id;
     }
 
+    @ManagedAttribute(description = "name属性")
     public String getName() {
         return name;
     }
@@ -33,12 +37,18 @@ public class SimpleBean {
         this.name = name;
     }
 
+    @ManagedAttribute(description = "value属性")
     public Integer getValue() {
         return value;
     }
 
     public void setValue(Integer value) {
         this.value = value;
+    }
+
+    @ManagedOperation(description = "显示全部属性")
+    public String displayValue(){
+        return toString();
     }
 
     @Override
