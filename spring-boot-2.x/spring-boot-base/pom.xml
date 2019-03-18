@@ -12,7 +12,7 @@
 
     <artifactId>spring-boot-base</artifactId>
     <packaging>jar</packaging>
-    <name>Spring Boot Base测试项目</name>
+    <name>Spring Boot Base 测试项目</name>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

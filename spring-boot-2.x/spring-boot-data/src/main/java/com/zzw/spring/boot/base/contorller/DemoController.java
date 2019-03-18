@@ -1,15 +1,11 @@
 package com.zzw.spring.boot.base.contorller;
 
-import com.zzw.spring.boot.SpringBootBaseApplication;
+import com.zzw.spring.boot.base.SpringBootDataApplication;
 import com.zzw.spring.boot.base.domain.Person;
 import com.zzw.spring.boot.base.jmx.SimpleBean;
-import com.zzw.spring.boot.domain.Person;
-import com.zzw.spring.boot.jmx.SimpleBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -58,7 +54,7 @@ public class DemoController {
     }
 
     public static void main(String[] args) throws IOException {
-        ClassLoader classLoader = SpringBootBaseApplication.class.getClassLoader();
+        ClassLoader classLoader = SpringBootDataApplication.class.getClassLoader();
 
         Enumeration<URL> resources = classLoader.getResources("META-INF/spring.factories");
         while (resources.hasMoreElements()) {

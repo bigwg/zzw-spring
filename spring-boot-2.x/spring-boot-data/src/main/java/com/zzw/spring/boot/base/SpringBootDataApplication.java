@@ -16,9 +16,9 @@ import java.io.IOException;
         "classpath:META-INF/spring/context.xml",
         "classpath:META-INF/spring/context-test.xml"}
 )
-public class SpringBootBaseApplication {
+public class SpringBootDataApplication {
 
     public static void main(String[] args) throws IOException {
-        SpringApplication.run(SpringBootBaseApplication.class, args);
+        SpringApplication.run(SpringBootDataApplication.class, args);
     }
 }
