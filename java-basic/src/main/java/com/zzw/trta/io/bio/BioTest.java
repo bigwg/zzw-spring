@@ -23,17 +23,19 @@ public class BioTest {
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String info = null;
-        while ((info = br.readLine()) != null) {
+        while ((info = br.readLine()) != null && "".equals(info)) {
             System.out.println(info);
         }
-        socket.shutdownInput();//关闭输入流
         //4、获取输出流，响应客户端的请求
         OutputStream os = socket.getOutputStream();
-        PrintWriter pw = new PrintWriter(os);
-        pw.write("欢迎您！");
-        pw.flush();
+        String response = "HTTP/1.1 200 OK\n" +
+                "Content-Type: text/html\n" +
+                "\r\n" +
+                "<html><body>" +
+                "Hello World!" +
+                "</body></html>";
+        os.write(response.getBytes());
         //5、关闭资源
-        pw.close();
         os.close();
         br.close();
         isr.close();
