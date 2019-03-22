@@ -16,9 +16,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>spring-cloud-nacos</module>
-        <module>spring-boot-base</module>
-        <module>spring-boot-data</module>
+        <module>spring-cloud-nacos-2.x</module>
+        <module>spring-boot-base-2.x</module>
+        <module>spring-boot-data-2.x</module>
     </modules>
 
     <properties>

@@ -4,15 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-data</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>Spring Boot Data 测试项目</name>
-
     <parent>
         <groupId>com.zzw.spring</groupId>
         <artifactId>spring-boot-2.x</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <artifactId>spring-cloud-nacos-2.x</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>Spring Cloud Nacos 2.x 测试项目</name>
 
     <dependencies>
         <!-- web -->
@@ -21,8 +22,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -59,5 +64,5 @@
             </resource>
         </resources>
     </build>
-
+    
 </project>
