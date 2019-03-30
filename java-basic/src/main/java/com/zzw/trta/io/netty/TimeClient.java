@@ -7,7 +7,9 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import lombok.extern.slf4j.Slf4j;
 
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -15,6 +17,7 @@ import java.nio.charset.StandardCharsets;
  * @description
  * @date 2018/9/17 0:00
  */
+@Slf4j
 public class TimeClient {
 
     public void connect(int port, String host) {
@@ -37,8 +40,10 @@ public class TimeClient {
         }
     }
 
-    public static void main(String[] args) {
-        new TimeClient().connect(8080, "127.0.0.1");
+    public static void main(String[] args) throws URISyntaxException {
+        System.out.println(TimeClientHandler.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+        System.out.println(TimeClientHandler.class.getProtectionDomain().getCodeSource().getLocation());
+//        new TimeClient().connect(9090, "127.0.0.1");
     }
 
     private class TimeClientHandler extends ChannelInboundHandlerAdapter {
@@ -46,17 +51,13 @@ public class TimeClient {
         private final ByteBuf firstMessage;
 
         public TimeClientHandler() {
-            byte[] req = "QUERY TIME ORDER".getBytes();
-            firstMessage = Unpooled.buffer(req.length);
-            firstMessage.writeBytes(req);
+            firstMessage = Unpooled.copiedBuffer("QUERY TIME ORDER", StandardCharsets.UTF_8);
         }
 
         @Override
         public void channelRead(ChannelHandlerContext context, Object o) {
             ByteBuf buf = (ByteBuf) o;
-            byte[] req = new byte[buf.readableBytes()];
-            buf.readBytes(req);
-            String body = new String(req, StandardCharsets.UTF_8);
+            String body = buf.toString(StandardCharsets.UTF_8);
             System.out.println("Now is : " + body);
         }
 
@@ -66,7 +67,14 @@ public class TimeClient {
         }
 
         @Override
+        public void channelReadComplete(ChannelHandlerContext context){
+            context.close();
+        }
+
+        @Override
         public void exceptionCaught(ChannelHandlerContext context, Throwable cause) {
+            log.error("TimeClientHandler.error", cause);
+            cause.printStackTrace();
             context.close();
         }
     }
