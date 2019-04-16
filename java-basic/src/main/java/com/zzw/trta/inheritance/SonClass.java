@@ -19,9 +19,15 @@ public class SonClass extends ParentClass {
         setAgeAndSex(49, "男");
     }
 
+    public String getNameString(){
+        System.out.println(this.getClass().getSimpleName());
+        return name;
+    }
+
     public static void main(String[] args) {
         SonClass son = new SonClass();
         son.printAgeAndSex();
+        son.getNameString();
         System.out.println(son.getParentSex());
     }
 }
