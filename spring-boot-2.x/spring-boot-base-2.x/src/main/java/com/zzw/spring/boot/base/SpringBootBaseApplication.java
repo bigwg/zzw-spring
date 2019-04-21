@@ -1,7 +1,9 @@
 package com.zzw.spring.boot.base;
 
+import com.zzw.spring.boot.base.event.SaySomethingEvent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 
 import java.io.IOException;
@@ -19,6 +21,8 @@ import java.io.IOException;
 public class SpringBootBaseApplication {
 
     public static void main(String[] args) throws IOException {
-        SpringApplication.run(SpringBootBaseApplication.class, args);
+        ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringBootBaseApplication.class, args);
+        SaySomethingEvent event = new SaySomethingEvent(applicationContext, "赵志伟，你好！");
+        applicationContext.publishEvent(event);
     }
 }
