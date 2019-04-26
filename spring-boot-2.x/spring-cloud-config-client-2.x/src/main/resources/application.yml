@@ -16,6 +16,7 @@ management:
       enabled: true
       post:
         enabled: true
+
 logging:
   level:
     root: info

@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * @author zhaozhiwei

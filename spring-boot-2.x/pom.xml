@@ -19,6 +19,7 @@
         <module>spring-cloud-nacos-2.x</module>
         <module>spring-boot-base-2.x</module>
         <module>spring-boot-data-2.x</module>
+        <module>spring-cloud-config-client-2.x</module>
     </modules>
 
     <properties>

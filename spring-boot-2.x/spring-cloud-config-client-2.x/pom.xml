@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-data-1.x</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>Spring Boot Data 1.x 测试项目</name>
-
     <parent>
         <groupId>com.zzw.spring</groupId>
-        <artifactId>spring-boot-1.x</artifactId>
+        <artifactId>spring-boot-2.x</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <artifactId>spring-cloud-config-client-2.x</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Spring Cloud Config Client 2.x 测试项目</name>
 
     <dependencies>
         <!-- web -->
@@ -20,10 +20,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-jdbc</artifactId>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -59,5 +55,5 @@
             </resource>
         </resources>
     </build>
-
+    
 </project>
