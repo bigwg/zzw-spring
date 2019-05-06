@@ -1,8 +1,8 @@
-package com.zzw.spring.boot.base.contorller;
+package com.zzw.spring.boot.data.contorller;
 
-import com.zzw.spring.boot.base.SpringBootDataApplication;
-import com.zzw.spring.boot.base.domain.Person;
-import com.zzw.spring.boot.base.jmx.SimpleBean;
+import com.zzw.spring.boot.data.SpringBootDataApplication;
+import com.zzw.spring.boot.data.domain.Person;
+import com.zzw.spring.boot.data.jmx.SimpleBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

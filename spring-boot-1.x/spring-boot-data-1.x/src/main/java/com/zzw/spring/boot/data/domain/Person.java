@@ -1,11 +1,11 @@
-package com.zzw.spring.boot.base.domain;
+package com.zzw.spring.boot.data.domain;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 /**
- * TODO
+ *
  *
  * @author zhaozhiwei
  * @date 2019/3/12 13:37

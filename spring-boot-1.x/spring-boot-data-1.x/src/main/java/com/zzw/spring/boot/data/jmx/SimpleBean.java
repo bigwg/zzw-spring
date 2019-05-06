@@ -1,4 +1,4 @@
-package com.zzw.spring.boot.base.jmx;
+package com.zzw.spring.boot.data.jmx;
 
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.jmx.export.annotation.ManagedOperation;

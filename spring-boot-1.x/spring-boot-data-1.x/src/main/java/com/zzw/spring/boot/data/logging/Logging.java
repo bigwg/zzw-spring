@@ -1,4 +1,4 @@
-package com.zzw.spring.boot.base.logging;
+package com.zzw.spring.boot.data.logging;
 
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
