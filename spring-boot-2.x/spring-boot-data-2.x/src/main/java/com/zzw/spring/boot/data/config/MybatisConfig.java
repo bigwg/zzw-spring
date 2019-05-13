@@ -38,7 +38,7 @@ public class MybatisConfig {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sessionFactory.setMapperLocations(resolver.getResources("classpath:com/zzw/spring/boot/base/mapper/*Dao.xml"));
+        sessionFactory.setMapperLocations(resolver.getResources("classpath:com/zzw/spring/boot/data/mapper/*Mapper.xml"));
         return sessionFactory.getObject();
     }
 
