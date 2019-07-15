@@ -1,2 +1,8 @@
 zzw:
   config: zhaozhiwei
+
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.130.11:3306/test?useUnicode=true&autoReconnect=true&characterEncoding=UTF-8&socketTimeout=30000&connectTimeout=3000
+    username: root
+    password: Xigua711

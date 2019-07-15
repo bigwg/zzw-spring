@@ -1,2 +1,4 @@
 zzw:
-  config: zhaozhiwei
+  config: none
+  active: dev
+  properties:

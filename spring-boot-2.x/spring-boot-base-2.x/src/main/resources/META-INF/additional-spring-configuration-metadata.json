@@ -1,0 +1,9 @@
+{
+    "properties": [
+        {
+            "name": "zzw.properties",
+            "type": "java.lang.String",
+            "description": "Description for zzw.properties."
+        }
+    ]
+}

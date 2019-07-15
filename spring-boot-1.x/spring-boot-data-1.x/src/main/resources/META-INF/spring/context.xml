@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd" profile="dev">
 
-    <bean id="person" class="com.zzw.spring.boot.domain.Person">
+    <bean id="person" class="com.zzw.spring.boot.data.domain.Person">
         <property name="name" value="赵志伟"/>
         <property name="age" value="25"/>
     </bean>
