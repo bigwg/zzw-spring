@@ -1,0 +1,35 @@
+{
+    "properties": [
+        {
+            "name": "zzw.config",
+            "type": "java.lang.String",
+            "defaultValue": "zzw",
+            "description": "zzw custom config."
+        },
+        {
+            "name": "zzw.active",
+            "type": "java.lang.String",
+            "defaultValue": "dev",
+            "description": "zzw custom config."
+        }
+    ],
+    "hints": [
+        {
+            "name": "zzw.config",
+            "values": [
+                {
+                    "value": "none",
+                    "description": "Disable DDL handling."
+                }
+            ]
+        },
+        {
+            "name": "zzw.active",
+            "providers": [
+                {
+                    "name": "spring-profile-name"
+                }
+            ]
+        }
+    ]
+}

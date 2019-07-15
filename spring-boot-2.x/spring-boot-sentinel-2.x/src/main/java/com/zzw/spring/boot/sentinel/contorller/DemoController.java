@@ -1,9 +1,8 @@
-package com.zzw.spring.boot.base.contorller;
+package com.zzw.spring.boot.sentinel.contorller;
 
-import com.zzw.spring.boot.base.SpringBootBaseApplication;
-import com.zzw.spring.boot.base.jmx.SimpleBean;
-import com.zzw.spring.boot.base.domain.Person;
-import io.micrometer.core.instrument.util.NamedThreadFactory;
+import com.zzw.spring.boot.sentinel.SpringBootSentinelApplication;
+import com.zzw.spring.boot.sentinel.jmx.SimpleBean;
+import com.zzw.spring.boot.sentinel.domain.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +14,6 @@ import javax.annotation.Resource;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Enumeration;
-import java.util.concurrent.*;
 
 /**
  * @author zhaozhiwei
@@ -39,7 +37,6 @@ public class DemoController {
                                  @RequestParam(required = false) String name,
                                  @RequestParam(required = false) Integer value) {
         if (id != null) {
-
             simpleBean.setId(id);
         }
         if (name != null) {
@@ -57,23 +54,11 @@ public class DemoController {
     }
 
     public static void main(String[] args) throws IOException {
-//        ClassLoader classLoader = SpringBootBaseApplication.class.getClassLoader();
-//
-//        Enumeration<URL> resources = classLoader.getResources("META-INF/spring.factories");
-//        while (resources.hasMoreElements()) {
-//            System.out.println(resources.nextElement());
-//        }
-//        System.out.println(Integer.toBinaryString((1 << 29) - 1));
-//        System.out.println(Integer.toBinaryString(-1 << 29));
-//        System.out.println(Integer.toBinaryString((-1 << 29) | 0));
-//        System.out.println(Integer.toBinaryString(-1));
-        NamedThreadFactory factory = new NamedThreadFactory("mgetByFuture");
-        ExecutorService executor = new ThreadPoolExecutor(0, 200, 60L, TimeUnit.SECONDS,
-                new SynchronousQueue<Runnable>(), factory);
+        ClassLoader classLoader = SpringBootSentinelApplication.class.getClassLoader();
 
-        executor.execute(() -> {
-            System.out.println(111);
-        });
-        executor.shutdown();
+        Enumeration<URL> resources = classLoader.getResources("META-INF/spring.factories");
+        while (resources.hasMoreElements()) {
+            System.out.println(resources.nextElement());
+        }
     }
 }
