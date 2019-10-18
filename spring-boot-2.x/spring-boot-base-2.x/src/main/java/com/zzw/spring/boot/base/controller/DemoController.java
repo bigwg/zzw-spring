@@ -1,4 +1,4 @@
-package com.zzw.spring.boot.base.contorller;
+package com.zzw.spring.boot.base.controller;
 
 import com.zzw.spring.boot.base.SpringBootBaseApplication;
 import com.zzw.spring.boot.base.jmx.SimpleBean;
