@@ -20,6 +20,10 @@ public class StudentService {
     @Autowired
     private StudentDao studentDao;
 
+    public Student get(Integer id){
+        return this.getStudent(id);
+    }
+
     @Transactional
     public Student getStudent(Integer id) {
         return studentDao.getStudent(id);

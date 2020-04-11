@@ -21,6 +21,11 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @GetMapping("get")
+    public Student get(@RequestParam("id") Integer id){
+        return studentService.get(id);
+    }
+
     @GetMapping("getStudent")
     public Student getStudent(@RequestParam("id") Integer id){
         return studentService.getStudent(id);
