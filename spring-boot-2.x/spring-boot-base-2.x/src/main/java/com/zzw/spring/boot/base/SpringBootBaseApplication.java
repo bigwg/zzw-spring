@@ -1,6 +1,7 @@
 package com.zzw.spring.boot.base;
 
 import com.zzw.spring.boot.base.controller.DemoController;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -18,6 +19,7 @@ import java.io.IOException;
         "classpath:META-INF/spring/context.xml",
         "classpath:META-INF/spring/context-test.xml"}
 )
+@MapperScan("com.zzw.spring.boot.base.dao")
 public class SpringBootBaseApplication {
 
     public static void main(String[] args) throws IOException {

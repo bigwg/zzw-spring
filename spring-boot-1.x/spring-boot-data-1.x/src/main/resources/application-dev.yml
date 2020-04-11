@@ -1,2 +1,13 @@
 zzw:
   config: zhaozhiwei
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://master:3306/zzw_test?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.zzw.spring.boot.base.domain

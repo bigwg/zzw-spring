@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzw.spring.boot.base.dao.StudentDao">
+
+    <resultMap type="com.zzw.spring.boot.base.domain.Student" id="studentMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+    </resultMap>
+
+    <sql id="allResult">
+        <trim suffixOverrides=",">
+            `id`,
+            `name`,
+            `sex`,
+            `age`,
+        </trim>
+    </sql>
+
+    <insert id="insertStudent" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `student`
+        (
+        <trim suffixOverrides=",">
+            <if test="id!=null">
+                `id`,
+            </if>
+            <if test="name!=null">
+                `name`,
+            </if>
+            <if test="sex!=null">
+                `sex`,
+            </if>
+            <if test="age!=null">
+                `age`,
+            </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+            <if test="id!=null">
+                #{id},
+            </if>
+            <if test="name!=null">
+                #{name},
+            </if>
+            <if test="sex!=null">
+                #{sex},
+            </if>
+            <if test="age!=null">
+                #{age},
+            </if>
+        </trim>
+        )
+    </insert>
+
+    <update id="updateStudent">
+        UPDATE `student`
+        SET
+        <trim suffixOverrides=",">
+            <if test="name != null and name!=''">
+                `name` = #{name},
+            </if>
+            <if test="sex != null">
+                `sex` = #{sex},
+            </if>
+            <if test="age != null">
+                `age` = #{age},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+            `id` = #{id} and
+        </trim>
+    </update>
+
+    <select id="getStudent" resultMap="studentMap">
+        select <include refid="allResult"/>
+        from student
+        where id = #{id}
+    </select>
+
+    <update id="updateStudentAge">
+        update student
+        set age = #{updateAge}
+        where id = #{id} and age = #{expectAge}
+    </update>
+
+</mapper>

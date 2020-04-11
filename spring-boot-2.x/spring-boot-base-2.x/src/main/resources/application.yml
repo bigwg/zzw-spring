@@ -5,6 +5,11 @@ server:
 spring:
   profiles:
     active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://master:3306/zzw_test?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
 
 management:
   endpoints:
@@ -15,3 +20,5 @@ management:
 logging:
   level:
     root: info
+
+

@@ -25,14 +25,20 @@ public class UnsafeTest {
                 unsafe = (Unsafe) f.get(null);
             }
         }
-        UnsafeTest ut = new UnsafeTest();
-        ut.setValue(100);
-        System.out.println(ut.getValue());
-        System.out.println(unsafe);
-        long valueOffset = unsafe.objectFieldOffset(UnsafeTest.class.getDeclaredField("value"));
-//        unsafe.getAndSetInt(ut, valueOffset, 1);
-//        unsafe.compareAndSwapInt(ut, valueOffset, 100, 200);
-        unsafe.compareAndSwapObject(ut, valueOffset, 100, 200);
-        System.out.println(ut.getValue());
+        if (unsafe == null){
+            return;
+        }
+//        UnsafeTest ut = new UnsafeTest();
+//        ut.setValue(100);
+//        System.out.println(ut.getValue());
+//        System.out.println(unsafe);
+//        long valueOffset = unsafe.objectFieldOffset(UnsafeTest.class.getDeclaredField("value"));
+////        unsafe.getAndSetInt(ut, valueOffset, 1);
+////        unsafe.compareAndSwapInt(ut, valueOffset, 100, 200);
+//        unsafe.compareAndSwapObject(ut, valueOffset, 100, 200);
+//        System.out.println(ut.getValue());
+        unsafe.unpark(Thread.currentThread());
+        unsafe.park(true, 0L);
+        System.out.println("111");
     }
 }

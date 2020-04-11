@@ -1,5 +1,6 @@
 package com.zzw.spring.boot.base;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
@@ -16,6 +17,7 @@ import java.io.IOException;
         "classpath:META-INF/spring/context.xml",
         "classpath:META-INF/spring/context-test.xml"}
 )
+@MapperScan("com.zzw.spring.boot.base.dao")
 public class SpringBootDataApplication {
 
     public static void main(String[] args) throws IOException {
