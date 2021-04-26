@@ -15,7 +15,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <commons.io.version>2.5</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <commons-lang3.version>3.6</commons-lang3.version>
         <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
         <jwt.version>0.9.0</jwt.version>
